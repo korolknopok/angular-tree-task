@@ -1,7 +1,19 @@
-<h1>Дерево</h1>
-<app-tree [nodes]="treeNodes" [template]="nodeTemplate"></app-tree>
+<h1>Первое Дерево</h1>
+<app-tree [nodes]="treeNodes" [template]="nodeTemplate1"></app-tree>
 
-<ng-template #nodeTemplate let-node>
+<ng-template #nodeTemplate1 let-node>
   <span>{{ node.id }} - {{ node.title }}</span>
   <button (click)="log(node)">Нажми</button>
+</ng-template>
+
+<h1>Второе дерево</h1>
+<app-tree [nodes]="treeNodes" [template]="nodeTemplate2" [expandedNodes]="globalExpanded">
+</app-tree>
+
+<ng-template #nodeTemplate2 let-node>
+  <span>
+    {{ node.title }}
+    <ng-container *ngIf="node.children.length"> ({{ node.children.length }})</ng-container>
+  </span>
+  <button *ngIf="node.children.length" (click)="expandAll(node)">Раскрыть всё</button>
 </ng-template>
