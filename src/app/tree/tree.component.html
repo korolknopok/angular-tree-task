@@ -1,11 +1,11 @@
 <ul>
-  <li *ngFor="let node of nodes">
-    <div class="node" [class.deleted]="node.is_deleted">
+    <li *ngFor="let node of nodes">
+        <div class="node" [class.deleted]="node.is_deleted">
           <span *ngIf="node.children.length" (click)="toggle(node)">
             {{ expandedNodes().has(node.id) ? '↑' : '↓' }}
           </span>
-      {{ node.title }}
-    </div>
-    <app-tree *ngIf="expandedNodes().has(node.id)" [nodes]="node.children"></app-tree>
-  </li>
+            <ng-container [ngTemplateOutlet]="template" [ngTemplateOutletContext]="{ $implicit: node }"></ng-container>
+        </div>
+        <app-tree *ngIf="expandedNodes().has(node.id)" [nodes]="node.children" [template]="template"></app-tree>
+    </li>
 </ul>

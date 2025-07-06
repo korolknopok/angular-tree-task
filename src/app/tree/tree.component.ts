@@ -1,4 +1,4 @@
-import {Component, Input, signal} from '@angular/core';
+import {Component, Input, signal, TemplateRef} from '@angular/core';
 import {TreeNode} from '../tree-node';
 
 @Component({
@@ -9,6 +9,7 @@ import {TreeNode} from '../tree-node';
 })
 export class TreeComponent {
   @Input() nodes: TreeNode[] = [];
+  @Input() template!: TemplateRef<any>;
   expandedNodes = signal<Set<number>>(new Set());
 
   toggle(node: TreeNode) {

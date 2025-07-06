@@ -103,4 +103,7 @@ export class AppComponent {
       ]
     }
   ];
+  log(node: TreeNode) {
+    console.log(`ID узла: ${node.id}`);
+  }
 }
