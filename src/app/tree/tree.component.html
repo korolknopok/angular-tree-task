@@ -1,0 +1,7 @@
+<ul>
+  <li *ngFor="let node of nodes">
+    <div class="node" [class.deleted]="node.is_deleted">
+      {{ node.title }}
+    </div>
+  </li>
+</ul>
