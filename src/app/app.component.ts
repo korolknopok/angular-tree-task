@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {TreeNode} from './tree-node';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +8,8 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'angular-tree-task';
+  treeNodes: TreeNode[] = [
+    { id: 1, title: "Узел 1", is_deleted: false, children: [] },
+    { id: 2, title: "Узел 2", is_deleted: true, children: [] }
+  ];
 }
