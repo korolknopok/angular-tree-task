@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, signal} from '@angular/core';
 import {TreeNode} from './tree-node';
 
 @Component({
@@ -105,5 +105,23 @@ export class AppComponent {
   ];
   log(node: TreeNode) {
     console.log(`ID узла: ${node.id}`);
+  }
+
+  globalExpanded = signal<Set<number>>(new Set());
+
+  expandAll(node: TreeNode) {
+    const expandRecursive = (n: TreeNode) => {
+      this.globalExpanded.update(set => {
+        const newSet = new Set(set);
+        newSet.add(n.id);
+        return newSet;
+      });
+
+      if (n.children?.length) {
+        n.children.forEach(expandRecursive);
+      }
+    };
+
+    expandRecursive(node);
   }
 }

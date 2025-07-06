@@ -6,11 +6,11 @@ import { TreeComponent } from './tree/tree.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    TreeComponent
+    AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    TreeComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
