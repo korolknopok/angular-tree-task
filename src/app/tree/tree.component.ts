@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, signal} from '@angular/core';
 import {TreeNode} from '../tree-node';
 
 @Component({
@@ -9,4 +9,15 @@ import {TreeNode} from '../tree-node';
 })
 export class TreeComponent {
   @Input() nodes: TreeNode[] = [];
+  expandedNodes = signal<Set<number>>(new Set());
+
+  toggle(node: TreeNode) {
+    const expanded = this.expandedNodes();
+    if (expanded.has(node.id)) {
+      expanded.delete(node.id);
+    } else {
+      expanded.add(node.id);
+    }
+    this.expandedNodes.set(new Set(expanded));
+  }
 }
