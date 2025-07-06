@@ -9,7 +9,13 @@ import {TreeNode} from './tree-node';
 })
 export class AppComponent {
   treeNodes: TreeNode[] = [
-    { id: 1, title: "Узел 1", is_deleted: false, children: [] },
+    { id: 1,
+      title: "Узел 1",
+      is_deleted: false,
+      children: [
+        { id: 2, title: "Узел 1.1", is_deleted: false, children: [] },
+        { id: 3, title: "Узел 1.2", is_deleted: true, children: [] }
+      ] },
     { id: 2, title: "Узел 2", is_deleted: true, children: [] }
   ];
 }
