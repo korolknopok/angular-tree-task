@@ -1,5 +1,5 @@
 import {Component, Input, signal, Signal, TemplateRef, WritableSignal} from '@angular/core';
-import { TreeNode } from '../tree-node';
+import { TreeNode } from '../../models/tree-node';
 import { NgIf, NgForOf, NgTemplateOutlet } from '@angular/common';
 
 @Component({
